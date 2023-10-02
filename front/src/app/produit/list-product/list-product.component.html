@@ -1,0 +1,144 @@
+
+<div id="reveal_container" class=" w-0 opacity-0  h-screen absolute top-0 left-0 z-20 bg-Azure flex items-center justify-center text-3xl font-mono uppercase"><span>{{namePage}}</span></div>
+<div id="parent" class="w-[100%]  bg-gris h-[92vh] overflow-y-hidden parent opacity-0 "  >
+    <div class="content w-full  h-full  bg-gris ">
+        <div class="w-full  flex justify-between px-16 py-4">
+            <form class=" w-[30%] ">
+                <div class="flex w-full shadow-lg">
+                    <label for="search-dropdown"
+                        class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your
+                        Email</label>
+                    <button id="dropdown-button" data-dropdown-toggle="dropdown"
+                        class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
+                        type="button">All categories <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 4 4 4-4" />
+                        </svg></button>
+                    <div id="dropdown"
+                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
+                            <li>
+                                <button type="button"
+                                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 font-mono font-bold  ">Nom
+                                    produit</button>
+                            </li>
+                            <li>
+                                <button type="button"
+                                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 font-mono font-bold ">code</button>
+                            </li>
+                            <li>
+                                <button type="button"
+                                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 font-mono font-bold">Categorie</button>
+                            </li>
+                            <li>
+                                <button type="button"
+                                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 font-mono font-bold">Logos</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative w-full">
+                        <input type="search" id="search-dropdown"
+                            class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+                            placeholder="Search Mockups, Logos, Design Templates..." required>
+                        <button type="submit"
+                            class="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            </svg>
+                            <span class="sr-only">Search</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div class="block-info  w-[27%] flex justify-between items-center">
+                <div class="w-[45%] border border-Azure h-14 rounded-lg py-4 px-3 text-black font-bold font-mono">Nbre de
+                    produit:
+                    <span class="text-black">10</span>
+                </div>
+                <div class="w-[45%] border border-Azure h-14 rounded-lg py-4 px-3 text-black font-bold font-mono">Qte en stock:
+                    <span class="text-black">19</span></div>
+            </div>
+            <button
+                class="outline outline-Azure outline-2  outline-offset-2  rounded-full w-28 hover:bg-Azure  hover:text-white"
+                (click)="imprimer()">imprimer</button>
+        </div>
+        <div class="w-full h-10 flex justify-between items-center px-16 mt-12">
+            <div class="w-3 h-4 bg-red flex justify-center ml-20 items-center">
+                <label for="#" class="ml-4 font-mono font-bold">show</label>
+                <select class="m-3 border-Azure rounded-full    ">
+                    <option selected class=" font-mono">2</option>
+                    <option class=" font-mono">4</option>
+                    <option class=" font-mono">6</option>
+                    <option class=" font-mono">8</option>
+                    <option class=" font-mono">10</option>
+                </select>
+                <label for="#" class="ml-1 font-mono font-bold">entries</label>
+            </div>
+            <div class="div">
+            <a routerLink="add-product">
+                <img src="assets/svg/add.svg" class="h-10 mr-3" alt="Flowbite Logo" />
+            </a>
+        </div>
+
+        </div>
+        <div class="mt-10 ml-14">
+
+            <div class="relative w-[97%] overflow-x-auto shadow-md sm:rounded-lg">
+                <table class=" text-sm w-full text-left text-gray-500 dark:text-gray-400">
+                    <thead
+                        class="text-sm border-black border-b-2  font-mono font-extrabold text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 ">
+                                code
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                libelle
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                prix unitaire
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                prix en gros
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                quantité
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
+                            *ngFor="let produit of produits">
+                            <th scope="row" class="px-6 py-4 font-mono text-gray-900 whitespace-nowrap dark:text-white">
+                                {{produit.code}}
+                            </th>
+                            <td class="px-6 py-4 font-mono font-semibold">
+                                {{produit.libelle}}
+                            </td>
+                            <td class="px-6 py-4 font-monofont-semibold">
+                                {{produit.pivot.prix_unitaire}}
+                            </td>
+                            <td class="px-6 py-4  font-monofont-semibold">
+                                {{produit.pivot.prix_en_gros}}
+                            </td>
+                            <td class="px-6 py-4  font-monofont-semibold">
+                                {{produit.pivot.quantite}}
+                            </td>
+                            <td class="px-6 py-4 font-mono font-semibold">
+                                <a href="#"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,7 @@
+
+<div id="reveal_container" class=" w-0 opacity-0  h-screen absolute top-0 left-0 z-20 bg-Azure flex items-center justify-center text-3xl font-mono uppercase"><span>{{namePage}}</span></div>
+<div id="parent" class="w-[100%] flex bg-black h-[92vh]  overflow-hidden  opacity-0" >
+    <app-panier class="w-[70%] " [panierChoice]="panierChoice" (commande)="commande($event)" ></app-panier>
+    <app-product-item  class="w-2/5 "(search)="search($event)" [productData]="productData" [amis]="amis" (productAdd)="productAdd($event)"></app-product-item>
+</div>
+

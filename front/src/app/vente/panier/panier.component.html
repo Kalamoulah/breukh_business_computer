@@ -1,0 +1,142 @@
+<div class=" bg-gris h-full border-white border-r-2 shadow-sm  panier-anim">
+    <div class="w-full h-1/6 bg-nightBlue p-14 flex justify-between items-center panier-anim-opacity">
+        <h1 class="text-4xl font-bold font-mono text-black">BBC<span class="text-Azure">.</span></h1>
+        <h1 class="text-2xl font-mono text-black">Stock:<span>10</span></h1>
+    </div>
+
+    <div class="w-full h-[65%] p-14 panier-anim-opacity">
+        <div class="relative overflow-x-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bg-white">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Product name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Price
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            quantité
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            total
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class=" border bg-nightBlue border-gris" *ngFor="let panier of panierChoice">
+                        <th scope="row" class="px-6 py-4 font-mono  whitespace-nowrap text-black">
+                            {{panier.libelle}}
+                        </th>
+                        <td contenteditable="true" class="px-6 py-4 text-black">
+                            {{panier ? panier.prix : 0}}
+                        </td>
+                        <td class="px-6 py-4 text-black">
+                            {{panier ? panier.quantite : 0}}
+                        </td>
+                        <td class="px-6 py-4  text-black">
+                            {{panier ? panier.total : 0}}
+                        </td>
+                        <td class="px-6 py-4 ">
+                            <a href="#" class="font-mono text-black  hover:underline">retirer</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="w-full h-[20%] flex justify-center bg-nightBlue items-center panier-anim-opacity">
+
+        <div class="flex mr-10 w-1/3 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+            <span
+                class="inline-flex items-center px-3 text-sm text-nightBlue bg-Azure border border-r-0 border-Azure rounded-l-md ">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff"
+                    version="1.1" id="Capa_1" class="w-6 h-6 text-black dark:text-gray-400" viewBox="0 0 27.483 27.483"
+                    xml:space="preserve">
+                    <g>
+                        <path
+                            d="M27.095,12.917L13.443,0.782c-0.5-0.444-1.456-0.795-2.124-0.781L1.454,0.213C0.786,0.227,0.227,0.786,0.213,1.454   L0,11.319c-0.014,0.668,0.337,1.624,0.781,2.123l12.135,13.652c0.444,0.5,1.194,0.521,1.667,0.048l12.56-12.561   C27.615,14.11,27.594,13.359,27.095,12.917z M6.684,6.684c-0.712,0.712-1.867,0.712-2.579,0C3.393,5.973,3.394,4.818,4.105,4.106   c0.711-0.712,1.865-0.712,2.577,0C7.396,4.818,7.396,5.973,6.684,6.684z M19.824,14.744H8.575v-2.048h11.249L19.824,14.744   L19.824,14.744z" />
+                    </g>
+                </svg>
+            </span>
+            <input type="number" id="remise"
+                class="rounded-none rounded-r-lg bg-night outline-none text-black  focus:border-blue-500 block flex-1 min-w-0 w-1/4 text-sm border-white p-2.5"
+                placeholder="elonmusk" [(ngModel)]="promo">
+        </div>
+        <div class="flex w-1/3 mr-10 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] ">
+            <!-- [ngClass]="{'bg-red':calculateTotal() <= 5000}" -->
+            <span
+                class="inline-flex items-center px-3 text-sm text-nightBlue bg-Azure border border-r-0 border-Azure rounded-l-md ">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff"
+                    version="1.1" id="Capa_1" class="w-6 h-6 text-white dark:text-gray-400" viewBox="0 0 70.074 70.074"
+                    xml:space="preserve">
+                    <g>
+                        <path
+                            d="M69.888,45.851c-1.876,7.473-5.092,14.373-11.442,16.723c-16.556,6.124-34.405-5.657-46.9,1.66L0,52.691   c6.189-2.618,14.078-12.698,23.242-13.876c4.762-0.613,10.763,2.085,16.722,2.64c5.242,0.488,14.111-2.295,14.964,3.521   c0.734,5.032-8.147,4.761-14.083,5.278c4.645,0.929,9.655,5.27,13.479,4.211c4.932-1.359,7.491-8.641,10.924-10.753   C69.135,41.318,70.638,42.855,69.888,45.851z M43.769,31.829v7.876c0.317-0.021,0.635-0.043,0.954-0.057   c1.216-0.082,2.475-0.164,3.682-0.164c0.255,0,0.588,0.004,0.967,0.018c0.185-0.598,0.311-1.231,0.311-1.932   c0-1.827-0.676-3.212-2.015-4.163C46.895,32.854,45.594,32.324,43.769,31.829z M36.35,22.22c0,1.443,0.479,2.579,1.443,3.391   c0.967,0.82,2.267,1.391,3.896,1.708V17.029c-1.925,0.075-3.298,0.653-4.112,1.752C36.754,19.876,36.35,21.023,36.35,22.22z    M48.295,51.392c2.153,1.017,4.186,1.793,5.57,1.409c2.331-0.641,4.188-3.198,5.985-5.675c1.441-1.979,2.797-3.847,4.496-4.891   c0.36-0.224,0.709-0.416,1.054-0.584c1.569-3.28,2.475-6.943,2.475-10.822c0-13.896-11.269-25.165-25.162-25.165   c-13.901,0-25.164,11.269-25.164,25.165c0,2.583,0.392,5.078,1.117,7.422c1.411-0.552,2.86-0.96,4.36-1.154   c2.735-0.347,5.735,0.256,8.891,1.004c-0.071-0.634-0.114-1.307-0.114-2.03h3.872c0.07,1.209,0.225,2.192,0.438,3.007   c1.347,0.287,2.688,0.536,4.015,0.657c0.488,0.048,1.024,0.052,1.57,0.05v-8.482c-3.167-0.602-5.507-1.602-7.018-2.998   c-1.509-1.404-2.264-3.343-2.264-5.824c0-2.219,0.811-4.221,2.438-5.994c1.631-1.78,3.91-2.688,6.844-2.719v-2.911h2.082v2.871   c2.899,0.205,5.13,1.061,6.686,2.565c1.556,1.509,2.37,3.5,2.441,5.978h-3.832c-0.101-1.11-0.397-2.068-0.895-2.871   c-0.926-1.475-2.386-2.248-4.4-2.322v10.663c3.383,0.946,5.683,1.838,6.892,2.672c1.975,1.374,2.958,3.399,2.958,6.085   c0,1.394-0.166,2.63-0.492,3.738c1.648,0.681,3.132,1.98,3.501,4.494c0.208,1.414-0.128,2.71-0.958,3.741   C54.202,50.273,51.434,51.011,48.295,51.392z" />
+                    </g>
+                </svg>
+            </span>
+            <input type="text" id="prixTotal"
+                class="rounded-none rounded-r-lg bg-white outline-none text-black focus:ring-Azure focus:border-blue-500 block flex-1 min-w-0 w-1/4 text-sm border-white p-2.5"
+                placeholder="elonmusk" disabled [value]="calculateTotal()">
+        </div>
+        <button type="submit" (click)="addVente()" [disabled]="panierChoice.length == 0"
+            class="text-white  bg-Azure hover:bg-night hover:text-white  focus:ring-4 focus:outline-none focus:ring-Azure font-mono rounded-lg text-sm px-4 py-2  dark:hover:bg-white dark:focus:ring-white">
+            Ajouter
+        </button>
+    </div>
+
+    <div *ngIf="openModel" class="fixed inset-0 z-50 overflow-auto flex items-center justify-center">
+        <div class="modal-overlay absolute inset-0 bg-Azure opacity-50"></div>
+        <div
+            class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] z-50 overflow-y-auto">
+            <div class="modal-content py-4 text-left px-6">
+                <div class="mb-4">
+                    <p class="text-2xl font-semibold">Titre du Modal</p>
+                </div>
+                <h2 class="text-green text-lg mb-4">Montant net à payer: <span>{{calculateTotal()}} FCFA</span></h2>
+                <div class="mb-8">
+                    <label for="input2" class="block text-gray-700 text-sm font-bold mb-2">prix encaissé</label>
+                    <input type="text" id="input2" [(ngModel)]="prixEncaise"
+                        class="w-full px-3 py-2 border rounded-lg text-black bg-night focus:outline-none focus:shadow-outline"
+                        placeholder="Entrez quelque chose..."
+                        [ngStyle]="{'border-color':  calculateTotal() <= prixEncaise? 'green' : 'red'}">
+                </div>
+                <h2 class="mb-8 text-lg text-red"> Montant rendu: <span>{{ prixEncaise ? prixEncaise - calculateTotal()
+                        : 0}}</span></h2>
+
+                <div class="text-right flex">
+                    <button class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400"
+                        (click)="closeModal()">
+                        Annuler
+                    </button>
+                    <button
+                        class="px-4 py-2 mr-5 bg-Azure text-white rounded-lg hover:bg-gray-400 flex items-center justify-between"
+                        (click)="commander()">
+
+
+                        <div *ngIf="loader" role="status" class="mr-2">
+                            <svg aria-hidden="true"
+                                class="w-6 h-6  text-gray-200 animate-spin dark:text-gray-600 fill-Azure"
+                                viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                    fill="currentColor" />
+                                <path
+                                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                    fill="currentFill" />
+                            </svg>
+                        </div>
+                        <span> commander</span>
+                    </button>
+                    <button class="px-4 py-2 bg-nightBlue text-white rounded-lg hover:bg-gray-400">
+                        facture
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

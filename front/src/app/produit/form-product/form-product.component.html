@@ -1,0 +1,138 @@
+<div id="reveal_container" class=" w-0 opacity-0  h-screen absolute top-0 left-0 z-20 bg-Azure flex items-center justify-center text-3xl font-mono uppercase"><span>{{namePage}}</span></div>
+
+<div id='parent'class="w-full h-[88vh] px-16 opacity-0">
+    <form [formGroup]="productForm">
+        <div class="form-group flex justify-between w-full mt-10">
+            <div class="w-[48%]">
+                <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Article</label>
+                <input type="text" id="base-input" formControlName="libelle"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="flex  justify-between items-center w-[48%]  ">
+                <div class="w-[30%]">
+                    <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Prix unitaire</label>
+                    <input type="text" id="base-input" formControlName="prixUnitaire"
+                        (input)="validInput('prixUnitaire')"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div class="w-[30%]">
+                    <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Prix en gros</label>
+                    <input type="text" id="base-input" formControlName="prixEnGros" (input)="validInput('prixEnGros')"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+
+                <div class="w-[30%]">
+                    <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Quantite</label>
+                    <input type="text" id="base-input" formControlName="quantite" (input)="validInput('quantite')"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+            </div>
+        </div>
+        <div class="w-full flex justify-between mt-10">
+            <div class="w-[48%]">
+                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Categorie
+                </label>
+                <select id="countries" formControlName="categorie" (change)="getMarque($event)"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected>choisir un categorie</option>
+                    <option *ngFor="let item of categories" [value]="item.id">{{item.libelle}}</option>
+                </select>
+            </div>
+            <div class="w-[48%]">
+                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select your
+                    Marque</label>
+                <select id="countries" formControlName="marque"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected>choisir une marque</option>
+                    <option *ngFor="let item of marques" [value]="item.id">{{item.libelle}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="flex h-auto w-full justify-between items-center mt-10">
+            <div class="w-[48%]">
+
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">code produit
+                </label>
+                <input type="text" id="disabled-input" aria-label="disabled input"
+                    class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    value="" disabled placeholder="000000">
+            </div>
+            <div class="w-[48%]">
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">description
+                </label>
+                <textarea id="message" rows="4" formControlName="description"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="description"></textarea>
+            </div>
+        </div>
+        <div class="w-100% h-auto  mt-10 flex justify-between">
+            <div class="w-60 h-60 bg-cover border-4 border-blue-300 "
+                style="background-image:url(assets/img/photo.png);">
+                <label for="imageSelection">
+                    <img [src]="selectedImageUrl || 'assets/img/photo.png'" class="w-full h-full object-cover">
+                </label>
+                <input type="file" style="display: none;" id="imageSelection" (change)="selectImage($event)">
+                <button class="mt-10  py-3 text-sm text-white rounded-lg hover:bg-blue-800 bg-Azure font-mono"
+                    (click)="addCaracts()">ajouter caracteristique</button>
+            </div>
+            <div formArrayName="caracteristique" class="w-[50%] h-80 flex-col items-center py-3 overflow-y-auto">
+                <div class=" w-full flex items-center justify-between mt-5"
+                    *ngFor="let item of caracteristique.controls; let i = index" [formGroupName]="i">
+                    <div class="w-[38%] ">
+                        <label for="message"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">caracteristique
+                        </label>
+                        <select id="countries" formControlName="caract" (change)="onSelectValue($event, i)"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Choisie une caractéristique</option>
+                            <option *ngFor="let item of caracts" [value]="item.id">{{item.libelle}}</option>
+                        </select>
+                    </div>
+                    <div class="w-[38%]" *ngIf="caracteristique.at(i).get('typeValeur')!.value === 'input'">
+                        <label for="message"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">valeur</label>
+                        <input formControlName='valeur' type="text"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    </div>
+
+                    <div class="w-[38%]" *ngIf="caracteristique.at(i).get('typeValeur')!.value === 'select'">
+                        <label for="message"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">valeur</label>
+                        <select *ngIf="value" formControlName='valeur'>
+                            <option *ngFor="let item of value" [value]="item">{{item}}</option>
+                        </select>
+                    </div>
+
+                    <div class="w-[38%]" *ngIf="caracteristique.at(i).get('typeValeur')!.value === 'radio'">
+                        <label class="m-2" *ngFor="let item of value">
+                            <input type="radio" class="form-radio text-indigo-600" name="valeur" [value]="item"
+                                formControlName='valeur'>
+                            <span class="ml-2">{{item}}</span>
+                        </label>
+                    </div>
+                    <div class="w-[38%] ">
+                        <label for="message"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">caracteristique
+                        </label>
+                        <select id="countries" formControlName="caract" (change)="onSelectValue($event, i)"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Choisie un unite</option>
+                            <option *ngFor="let item of unites" [value]="item.id">{{item.libelle}}</option>
+                        </select>
+                    </div>
+                    <div (click)="deleteItem(i)"
+                        class="text-xl mt-2 w-8 h-8 text-red-700 cursor-pointer border border-red-500 flex justify-center items-center">
+                        x
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button (click)="addProduct()"
+            class="mt-10  py-3 text-sm text-white rounded-lg hover:bg-blue-800 bg-Azure font-mono">ajouter</button>
+    </form>
+</div>
